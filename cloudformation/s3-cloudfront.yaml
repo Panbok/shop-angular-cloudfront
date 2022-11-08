@@ -117,7 +117,7 @@ Resources:
             MinimumProtocolVersion: TLSv1.2_2019
           - CloudFrontDefaultCertificate: true
         Origins:
-          - DomainName: !Sub ${AppBucket}.s3.amazonaws.com
+          - DomainName: !GetAtt S3Bucket.RegionalDomainName
             Id: myS3Origin
             S3OriginConfig:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${OriginAccessIdentity}
